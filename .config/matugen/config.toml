@@ -1,0 +1,22 @@
+[config]
+reload_apps = true
+
+[templates.mako]
+input_path = "~/.config/matugen/templates/mako/config"
+output_path = "~/.config/mako/config"
+
+[templates.kitty]
+input_path = "~/.config/matugen/templates/kitty/colors.conf"
+output_path = "~/.config/kitty/colors.conf"
+
+[templates.fuzzel]
+input_path = "~/.config/matugen/templates/fuzzel/fuzzel.ini"
+output_path = "~/.config/fuzzel/fuzzel.ini"
+
+[templates.eww]
+input_path = "~/.config/matugen/templates/eww/colors.scss"
+output_path = "~/.config/eww/colors.scss"
+
+[templates.swaylock]
+input_path = "~/.config/matugen/templates/swaylock/config"
+output_path = "~/.config/swaylock/config"

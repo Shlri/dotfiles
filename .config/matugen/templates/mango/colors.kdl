@@ -1,0 +1,8 @@
+layout {
+    border-color "{{colors.primary.default.hex}}"
+    active-border-color "{{colors.primary_container.default.hex}}"
+}
+
+window-rule {
+    opacity {{colors.surface.default.hex}}
+}
