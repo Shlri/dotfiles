@@ -1,0 +1,93 @@
+(defwidget bar []
+  (box :class "bar"
+       :orientation "h"
+    (box :class "bar-left" 
+         :halign "start"
+         :spacing 10
+         :space-evenly false
+      (workspaces-widget)
+      (window-title-widget))
+    
+    (box :class "bar-center"
+         :halign "center"
+      (clock-widget))
+    
+    (box :class "bar-right"
+         :halign "end"
+         :spacing 10
+         :space-evenly false
+      (system-widget)
+      (network-widget)
+      (volume-widget)
+      (battery-widget))))
+
+;; Воркспейсы
+(defwidget workspaces-widget []
+  (box :class "workspaces"
+       :spacing 5
+    (for tag in workspaces
+      (button :class {tag.active ? "workspace-active" : 
+                      tag.occupied ? "workspace-occupied" : 
+                      "workspace-empty"}
+              :onclick "mmsg -d view,${tag.id}"
+        "${tag.id}"))))
+
+;; Заголовок окна
+(defwidget window-title-widget []
+  (box :class "window-title"
+    (label :text {window-title != "" ? window-title : "MangoWC"}
+           :limit-width 50
+           :show-truncated true)))
+
+;; Часы
+(defwidget clock-widget []
+  (box :class "clock"
+       :spacing 10
+    (label :class "time" :text time)
+    (label :class "date" :text date)))
+
+;; Система (CPU, RAM)
+(defwidget system-widget []
+  (box :class "system"
+       :spacing 8
+    (box :class "cpu"
+      (label :text "󰍛 ${cpu}%"))
+    (box :class "memory"
+      (label :text "󰘚 ${memory}%"))))
+
+;; Сеть
+(defwidget network-widget []
+  (box :class "network"
+    (label :text {network.connected ? 
+                  (network.type == "wifi" ? "󰖩 ${network.ssid}" : "󰈀") : 
+                  "󰖪"})))
+
+;; Громкость
+(defwidget volume-widget []
+  (eventbox :onhover "eww update volume-reveal=true"
+            :onhoverlost "eww update volume-reveal=false"
+    (box :class "volume"
+         :space-evenly false
+         :spacing 5
+      (button :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        (label :text {volume.muted ? "󰖁" : 
+                      volume.level > 66 ? "󰕾" :
+                      volume.level > 33 ? "󰖀" : "󰕿"}))
+      (revealer :reveal volume-reveal
+                :transition "slideleft"
+        (label :text "${volume.level}%")))))
+
+;; Батарея
+(defwidget battery-widget []
+  (box :class "battery ${battery.status}"
+    (label :text {battery.status == "Charging" ? "󰂄" :
+                  battery.capacity > 90 ? "󰁹" :
+                  battery.capacity > 80 ? "󰂂" :
+                  battery.capacity > 70 ? "󰂁" :
+                  battery.capacity > 60 ? "󰂀" :
+                  battery.capacity > 50 ? "󰁿" :
+                  battery.capacity > 40 ? "󰁾" :
+                  battery.capacity > 30 ? "󰁽" :
+                  battery.capacity > 20 ? "󰁼" :
+                  battery.capacity > 10 ? "󰁻" : "󰁺"}
+           :tooltip "${battery.capacity}% - ${battery.status}")))

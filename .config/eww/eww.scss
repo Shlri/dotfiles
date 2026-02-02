@@ -1,0 +1,17 @@
+@import "scss/colors.scss";
+@import "scss/bar.scss";
+@import "scss/osd.scss";
+
+* {
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+}
+
+tooltip {
+  background-color: $surface-container;
+  color: $foreground;
+  border: 2px solid $primary;
+  border-radius: 8px;
+  padding: 8px;
+}

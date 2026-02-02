@@ -1,0 +1,122 @@
+@import "colors.scss";
+
+.bar {
+  background-color: $surface-container;
+  color: $foreground;
+  padding: 0 10px;
+  border-bottom: 2px solid $primary;
+}
+
+.bar-left, .bar-center, .bar-right {
+  padding: 0 10px;
+}
+
+// Workspaces
+.workspaces {
+  button {
+    min-width: 30px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    margin: 0 2px;
+    transition: all 0.2s ease;
+    
+    &.workspace-empty {
+      background-color: transparent;
+      color: $outline;
+    }
+    
+    &.workspace-occupied {
+      background-color: $surface-variant;
+      color: $secondary;
+    }
+    
+    &.workspace-active {
+      background-color: $primary;
+      color: $on-primary;
+      font-weight: bold;
+    }
+    
+    &:hover {
+      background-color: $primary-container;
+      color: $on-primary;
+    }
+  }
+}
+
+// Window title
+.window-title {
+  color: $foreground;
+  padding: 0 10px;
+  
+  label {
+    font-weight: 500;
+  }
+}
+
+// Clock
+.clock {
+  .time {
+    color: $primary;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .date {
+    color: $secondary;
+  }
+}
+
+// System
+.system {
+  .cpu, .memory {
+    padding: 4px 8px;
+    background-color: $surface-variant;
+    border-radius: 6px;
+    
+    label {
+      color: $tertiary;
+    }
+  }
+}
+
+// Network
+.network {
+  padding: 4px 8px;
+  background-color: $surface-variant;
+  border-radius: 6px;
+  color: $secondary;
+}
+
+// Volume
+.volume {
+  padding: 4px 8px;
+  background-color: $surface-variant;
+  border-radius: 6px;
+  
+  button {
+    color: $primary;
+  }
+  
+  label {
+    color: $foreground;
+  }
+}
+
+// Battery
+.battery {
+  padding: 4px 8px;
+  background-color: $surface-variant;
+  border-radius: 6px;
+  
+  &.Charging {
+    color: $tertiary;
+  }
+  
+  &.Discharging {
+    color: $secondary;
+  }
+  
+  &.Full {
+    color: $primary;
+  }
+}
