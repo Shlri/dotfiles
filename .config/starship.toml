@@ -1,0 +1,85 @@
+format = """
+$username$hostname$directory$git_branch$git_status$rust$nodejs$python$package$time$line_break$character"""
+
+add_newline = true
+palette = "custom"
+
+[palettes.custom]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+blue = "#89b4fa"
+cyan = "#89dceb"
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#fab387"
+purple = "#cba6f7"
+gray = "#585b70"
+
+[username]
+show_always = false
+format = "[$user]($style) "
+style_user = "bold blue"
+style_root = "bold red"
+
+[hostname]
+ssh_only = true
+format = "on [$hostname]($style) "
+style = "bold purple"
+trim_at = "."
+
+[directory]
+style = "bold blue"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " 🔒"
+home_symbol = "~"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+
+[git_status]
+style = "bold yellow"
+conflicted = "×"
+ahead = "↑$count"
+behind = "↓$count"
+diverged = "↕"
+untracked = "?"
+stashed = "≡"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+[rust]
+symbol = " "
+style = "bold red"
+
+[nodejs]
+symbol = " "
+style = "bold green"
+
+[python]
+symbol = " "
+style = "bold yellow"
+
+[package]
+disabled = false
+symbol = "📦 "
+
+# Время (справа, серое)
+[time]
+disabled = false
+time_format = "%R"  # 24-часовой формат
+format = "[$time]($style) "
+style = "bold dimmed gray"
+
+# Промпт-символ (можно сделать звёздочку или цепь)
+[character]
+success_symbol = "[★](bold blue)"
+error_symbol =   "[✗](bold red)"
+vimcmd_symbol =  "[](bold green)"
+
+# Разделитель строк
+[line_break]
+disabled = false
