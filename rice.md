@@ -8,6 +8,7 @@ Programs:
 - swaylock-effects + swayidle - lockscreen and idle
 - yazi - file manager
 - fish - shell
+
 Visual:
 - matugen - color gen
 - cinzel - font
