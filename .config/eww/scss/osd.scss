@@ -1,34 +1,52 @@
-@import "colors.scss";
+// ========================
+// osd
+// ========================
 
 .osd {
-  background-color: $surface-container;
-  border: 2px solid $primary;
+  background: rgba(49, 48, 51, 0.92);
+  border: 1px solid $outline;
   border-radius: 12px;
-  padding: 20px;
-  
-  .osd-icon {
-    .icon {
-      font-size: 32px;
-      color: $primary;
-      margin-bottom: 10px;
-    }
+  padding: 14px 18px;
+}
+
+.osd-header {
+  halign: start;
+}
+
+.osd-icon {
+  font-size: 20px;
+  color: $primary;
+}
+
+.osd-label {
+  font-size: 12px;
+  color: $on-surface-variant;
+  font-weight: bold;
+}
+
+.osd-value {
+  font-size: 11px;
+  color: $outline;
+}
+
+.osd-bar {
+  min-width: 200px;
+
+  trough {
+    min-height: 6px;
+    background: $surface-variant;
+    border-radius: 3px;
   }
-  
-  .osd-progress {
-    progress {
-      background-color: $surface-variant;
-      border-radius: 10px;
-      
-      trough {
-        min-height: 8px;
-        background-color: $surface-variant;
-        border-radius: 10px;
-      }
-      
-      bar {
-        background-color: $primary;
-        border-radius: 10px;
-      }
-    }
+
+  fill {
+    background: $primary;
+    border-radius: 3px;
+  }
+
+  slider {
+    min-width: 14px;
+    min-height: 14px;
+    background: $foreground;
+    border-radius: 50%;
   }
 }

@@ -1,0 +1,25 @@
+#!/bin/bash
+# ~/.config/eww/scripts/volume
+# возвращает JSON: {"level": 65, "muted": false}
+
+if ! command -v wpctl &>/dev/null; then
+  echo '{"level":50,"muted":false}'
+  exit 0
+fi
+
+RAW=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null)
+
+if [ -z "$RAW" ]; then
+  echo '{"level":50,"muted":false}'
+  exit 0
+fi
+
+LEVEL=$(echo "$RAW" | awk '{printf "%.0f", $2*100}')
+MUTED=$(echo "$RAW" | grep -q "MUTED" && echo "true" || echo "false")
+
+# кэп на 100
+if [ "$LEVEL" -gt 100 ]; then
+  LEVEL=100
+fi
+
+echo "{\"level\":$LEVEL,\"muted\":$MUTED}"

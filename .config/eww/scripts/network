@@ -1,0 +1,24 @@
+#!/bin/bash
+# ~/.config/eww/scripts/network
+# возвращает JSON: {"connected": true, "type": "wifi", "ssid": "MyNetwork"}
+
+# проверяем есть ли маршрут
+if ! ip route get 1 &>/dev/null 2>&1; then
+  echo '{"connected":false,"type":"","ssid":""}'
+  exit 0
+fi
+
+# ищем wifi интерфейс
+WIFI_IF=$(ls /sys/class/net/ | grep -E "^wl" | head -n1)
+
+if [ -n "$WIFI_IF" ] && [ -f "/sys/class/net/$WIFI_IF/operstate" ]; then
+  STATE=$(cat "/sys/class/net/$WIFI_IF/operstate")
+  if [ "$STATE" = "up" ]; then
+    SSID=$(iwgetid -r 2>/dev/null || echo "WiFi")
+    echo "{\"connected\":true,\"type\":\"wifi\",\"ssid\":\"$SSID\"}"
+    exit 0
+  fi
+fi
+
+# ethernet или другое
+echo '{"connected":true,"type":"ethernet","ssid":""}'

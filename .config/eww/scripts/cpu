@@ -1,0 +1,7 @@
+#!/bin/bash
+# ~/.config/eww/scripts/cpu
+# возвращает cpu usage в процентах
+
+awk '{printf "%.0f", ($1+$2)*100/($1+$2+$4)}' /proc/stat | head -1
+# если не работает, запасной вариант:
+# top -bn1 | grep "Cpu(s)" | awk '{printf "%.0f", $2}'

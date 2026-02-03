@@ -1,0 +1,5 @@
+#!/bin/bash
+# ~/.config/eww/scripts/window-title
+# получаем заголовок активного окна через mmsg
+
+mmsg -g 2>/dev/null | grep -oP '"title":\s*"\K[^"]*' || echo ""

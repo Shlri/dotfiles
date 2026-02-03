@@ -1,0 +1,49 @@
+;; ========================
+;; polls
+;; ========================
+
+;; время
+(defpoll time :interval "1s"
+  "date '+%H:%M'")
+
+;; дата
+(defpoll date :interval "30s"
+  "date '+%a, %d %b'")
+
+;; cpu
+(defpoll cpu :interval "2s"
+  "~/.config/eww/scripts/cpu")
+
+;; память
+(defpoll mem :interval "2s"
+  "~/.config/eww/scripts/memory")
+
+;; батарея
+(defpoll bat :interval "5s"
+  "~/.config/eww/scripts/battery")
+
+;; громкость
+(defpoll vol :interval "500ms"
+  "~/.config/eww/scripts/volume")
+
+;; яркость
+(defpoll bright :interval "500ms"
+  "~/.config/eww/scripts/brightness")
+
+;; сеть
+(defpoll net :interval "3s"
+  "~/.config/eww/scripts/network")
+
+;; теги mango (workspaces)
+(defpoll tags :interval "500ms"
+  "~/.config/eww/scripts/tags")
+
+;; заголовок окна
+(defpoll window-title :interval "500ms"
+  "~/.config/eww/scripts/window-title")
+
+;; ========================
+;; переменные для OSD
+;; ========================
+(defvar osd-vol-reveal false)
+(defvar osd-bright-reveal false)

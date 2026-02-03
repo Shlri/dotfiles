@@ -1,59 +1,65 @@
-;; Импорт модулей
-(include "./modules/bar.yuck")
-(include "./modules/osd.yuck")
-(include "./modules/variables.yuck")
+;; ========================
+;; imports
+;; ========================
+(include ".modules/bar/bar.yuck")
+(include ".modules/bar/modules.yuck")
+(include ".modules/bar/polls.yuck")
+(include ".modules/osd/osd.yuck")
 
-;; Бар для каждого монитора
+;; ========================
+;; windows
+;; ========================
+
+;; bar monitor 0
 (defwindow bar-0
   :monitor 0
-  :geometry (geometry 
-    :x "0%"
-    :y "0%"
+  :geometry (geometry
+    :x "0"
+    :y "0"
     :width "100%"
-    :height "30px"
-    :anchor "top center")
+    :height "28px"
+    :anchor "top left")
   :stacking "fg"
   :exclusive true
   :focusable false
-  (bar))
+  (bar "0"))
 
+;; bar monitor 1
 (defwindow bar-1
   :monitor 1
-  :geometry (geometry 
-    :x "0%"
-    :y "0%"
+  :geometry (geometry
+    :x "0"
+    :y "0"
     :width "100%"
-    :height "30px"
-    :anchor "top center")
+    :height "28px"
+    :anchor "top left")
   :stacking "fg"
   :exclusive true
   :focusable false
-  (bar))
+  (bar "1"))
 
-;; Можно добавить больше мониторов если нужно
-;; (defwindow bar-2 ...
-
-;; OSD только на главном мониторе
+;; osd volume
 (defwindow osd-volume
   :monitor 0
   :geometry (geometry
-    :x "0%"
-    :y "10%"
-    :width "300px"
-    :height "80px"
-    :anchor "top center")
+    :x "50%"
+    :y "90%"
+    :width "250px"
+    :height "auto"
+    :anchor "bottom center")
   :stacking "overlay"
   :focusable false
   (osd-volume))
 
+;; osd brightness
 (defwindow osd-brightness
   :monitor 0
   :geometry (geometry
-    :x "0%"
-    :y "10%"
-    :width "300px"
-    :height "80px"
-    :anchor "top center")
+    :x "50%"
+    :y "90%"
+    :width "250px"
+    :height "auto"
+    :anchor "bottom center")
   :stacking "overlay"
   :focusable false
   (osd-brightness))
