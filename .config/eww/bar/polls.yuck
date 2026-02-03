@@ -45,5 +45,5 @@
 ;; ========================
 ;; переменные для OSD
 ;; ========================
-(defvar osd-vol-reveal false)
-(defvar osd-bright-reveal false)
+;; osd-type: "volume" | "brightness" | "" (пустая = закрыто)
+(defvar osd-type "")

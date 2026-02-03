@@ -1,17 +1,15 @@
 ;; ========================
 ;; tags (workspaces)
 ;; ========================
-(defwidget tags-widget [monitor]
+(defwidget tags-widget []
   (box :class "tags"
        :orientation "h"
        :spacing 4
     (for tag in tags
       (button
-        :class {tag.monitor == monitor
-                ? (tag.active ? "tag tag-active"
-                  : (tag.occupied ? "tag tag-occupied"
-                    : "tag tag-empty"))
-                : "tag tag-other"}
+        :class {tag.active ? "tag tag-active"
+                : (tag.occupied ? "tag tag-occupied"
+                  : "tag tag-empty")}
         :onclick {"mmsg -d view,${tag.id}"}
         "${tag.id}"))))
 
@@ -75,20 +73,16 @@
 ;; ========================
 (defwidget vol-widget []
   (eventbox
-    :onhover "eww update osd-vol-reveal=true"
-    :onhoverlost "eww update osd-vol-reveal=false"
+    :onscroll "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%{} && ~/.config/eww/scripts/osd-timeout volume"
     (box :class "module volume"
          :orientation "h"
          :spacing 6
       (button :class "module-icon"
-              :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+              :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && ~/.config/eww/scripts/osd-timeout volume"
         {vol.muted ? "󰖁"
          : (vol.level > 66 ? "󰕾"
            : (vol.level > 33 ? "󰖀" : "󰕿"))})
-      (revealer :reveal osd-vol-reveal
-                :transition "slideleft"
-                :duration 200
-        (label :class "module-text" :text "${vol.level}%")))))
+      (label :class "module-text" :text "${vol.level}%"))))
 
 ;; ========================
 ;; battery
@@ -111,15 +105,11 @@
 ;; ========================
 (defwidget bright-widget []
   (eventbox
-    :onhover "eww update osd-bright-reveal=true"
-    :onhoverlost "eww update osd-bright-reveal=false"
+    :onscroll "brightnessctl set 5%{} && ~/.config/eww/scripts/osd-timeout brightness"
     (box :class "module brightness"
          :orientation "h"
          :spacing 6
       (label :class "module-icon"
              :text {bright.level > 66 ? "󰃠"
                     : (bright.level > 33 ? "󰃟" : "󰃞")})
-      (revealer :reveal osd-bright-reveal
-                :transition "slideleft"
-                :duration 200
-        (label :class "module-text" :text "${bright.level}%")))))
+      (label :class "module-text" :text "${bright.level}%"))))

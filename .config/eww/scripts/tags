@@ -16,7 +16,7 @@ for i in $(seq 1 9); do
     ACTIVE="false"
   fi
 
-  echo -n "{\"id\":$i,\"active\":$ACTIVE,\"occupied\":false,\"monitor\":\"0\"}"
+  echo -n "{\"id\":$i,\"active\":$ACTIVE,\"occupied\":false}"
 
   if [ $i -lt 9 ]; then
     echo -n ","
