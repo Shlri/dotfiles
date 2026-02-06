@@ -13,10 +13,10 @@ output_path = "~/.config/kitty/colors.conf"
 input_path = "~/.config/matugen/templates/fuzzel/fuzzel.ini"
 output_path = "~/.config/fuzzel/fuzzel.ini"
 
-[templates.eww]
-input_path = "~/.config/matugen/templates/eww/colors.scss"
-output_path = "~/.config/eww/colors.scss"
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-3.0/gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
 
-[templates.swaylock]
-input_path = "~/.config/matugen/templates/swaylock/config"
-output_path = "~/.config/swaylock/config"
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-4.0/gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'

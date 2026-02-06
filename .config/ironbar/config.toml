@@ -1,0 +1,19 @@
+position = "bottom"
+height = 34
+orientation = "horizontal"
+
+[start]
+modules = [""]
+
+[center]
+modules = ["clock"]
+
+[end]
+modules = ["battery", "cpu", "memory", "network"]
+
+[clock]
+format = "{:%H:%M}"
+
+[battery]
+format = "{capacity}% {icon}"
+icons = ["", "", "", "", ""]
