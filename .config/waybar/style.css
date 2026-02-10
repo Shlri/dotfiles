@@ -8,6 +8,31 @@
     background: @background;
     color: @on_surface;
 }
-#tags {
-    background: transparent;
+
+window#waybar {
+    background-color: @base01;
+    border-bottom: 1px solid #181825;
+    border-radius: 50px;
+    transition-property: background-color;
+    color: @base02;
+}
+
+#battery,
+#backlight,
+#network,
+#clock,
+#custom-applauncher,
+#pulseaudio {
+    margin: 6px;
+    margin-right: 0px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: @surface;
+
+    border-style: none;
+    transition-duration: 120ms;
+}
+
+#clock {
+    margin-right: 6px;
 }
