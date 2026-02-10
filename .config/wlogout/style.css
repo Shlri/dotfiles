@@ -1,0 +1,76 @@
+/* ~/.config/wlogout/style.css */
+
+@import "colors.css"; /* ← This pulls in Matugen-generated colors */
+
+* {
+    font-family:
+        JetBrainsMono Nerd Font,
+        sans-serif;
+    font-size: 0px; /* hide text completely */
+    transition: all 0.2s ease;
+}
+
+window {
+    background: alpha(
+        @background,
+        0.8
+    ); /* semi-transparent Matugen background */
+    /* backdrop-filter: blur(12px); */ /* optional, if compositor supports */
+}
+
+button {
+    background: alpha(@surface, 0.75);
+    border-radius: 50%; /* circular buttons */
+    border: 2px solid transparent;
+    box-shadow: 0 6px 20px alpha(@background, 0.5);
+    margin: 20px;
+    padding: 0;
+    min-width: 160px;
+    min-height: 160px;
+    background-size: 80px;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent;
+}
+
+button:hover {
+    background: alpha(@primary_container, 0.95);
+    border: 2px solid @primary;
+    box-shadow: 0 12px 30px alpha(@background, 0.6);
+}
+
+button:active {
+    background: @primary_container;
+}
+
+/* Accent specific buttons with Matugen colors */
+#lock {
+    background-image: url("icons/lock.png");
+}
+#logout {
+    background-image: url("icons/logout.png");
+    color: @error;
+} /* red-ish for logout */
+#shutdown {
+    background-image: url("icons/shutdown.png");
+    color: @error;
+}
+#reboot {
+    background-image: url("icons/reboot.png");
+    color: @tertiary;
+} /* orange-ish */
+#suspend {
+    background-image: url("icons/suspend.png");
+    color: @primary;
+}
+#hibernate {
+    background-image: url("icons/hibernate.png");
+    color: @secondary;
+}
+
+/* Optional: text fallback if you ever enable labels */
+button label {
+    color: @on_surface;
+    font-size: 14px;
+    margin-top: 8px;
+}

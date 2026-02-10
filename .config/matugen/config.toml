@@ -16,7 +16,57 @@ output_path = "~/.config/fuzzel/fuzzel.ini"
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-3.0/gtk.css'
 output_path = '~/.config/gtk-3.0/gtk.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk-4.0/gtk.css'
 output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.wlogout]
+input_path = '~/.config/matugen/templates/wlogout/colors.css'
+output_path = '~/.config/wlogout/colors.css'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar/colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.mango]
+input_path = '~/.config/matugen/templates/mango/colors.conf'
+output_path = '~/.config/mango/colors.conf'
+post_hook = 'mmsg -d reload_config'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava/colors.ini'
+output_path = '~/.config/cava/themes/matugen'
+post_hook = 'pkill -USR1 cava'
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop/matugen.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop || true'
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed/colors.json'
+output_path = '~/.config/zed/themes/matugen.json'
+
+[templates.yazi]
+input_path = '~/.config/matugen/templates/yazi/theme.toml'
+output_path = '~/.config/yazi/theme.toml'
+
+[templates.wine]
+input_path = '~/.config/matugen/templates/wine/wine.reg'
+output_path = '/tmp/wine.reg'
+post_hook = 'wine regedit /tmp/wine.reg'
+
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qt/matugen.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.qt6ct]
+input_path = '~/.config/matugen/templates/qt/matugen.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.starship]
+input_path = '~/.config/matugen/templates/starship.toml'
+output_path = '~/.config/starship.toml'

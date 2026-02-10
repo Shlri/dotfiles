@@ -1,0 +1,13 @@
+@import "colors.css"; /* or the full path if placed elsewhere: url("colors.css"); */
+
+* {
+    font-family: Cinzel;
+    border-radius: 12px;
+    font-size: 14px;
+    padding: 0px;
+    background: @background;
+    color: @on_surface;
+}
+#tags {
+    background: transparent;
+}
