@@ -6,15 +6,15 @@ palette = "colors"
 
 [palettes.colors]
 mustard = '#af8700' # example
-color1 = '#b6cacb'
-color2 = '#213435'
-color3 = '#c2c8c7'
-color4 = '#1f2020'
-color5 = '#213435'
-color6 = '#131313'
-color7 = '#131313'
-color8 = '#b6cacb'
-color9 = '#cbc3d7'
+color1 = '#c9bfff'
+color2 = '#302176'
+color3 = '#c9c4d3'
+color4 = '#201f25'
+color5 = '#302176'
+color6 = '#141318'
+color7 = '#141318'
+color8 = '#c9bfff'
+color9 = '#ffade0'
 
 [username]
 show_always = false

@@ -21,13 +21,14 @@ window#waybar {
 #backlight,
 #network,
 #clock,
-#custom-applauncher,
+#tray,
+#custom-launcher,
 #pulseaudio {
     margin: 6px;
     margin-right: 0px;
-    padding: 4px 8px;
+    padding: 4px 4px;
     border-radius: 5px;
-    color: @surface;
+    color: @on_surface;
 
     border-style: none;
     transition-duration: 120ms;

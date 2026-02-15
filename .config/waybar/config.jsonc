@@ -9,11 +9,11 @@
   "modules-left": ["dwl/tags", "dwl/window"],
   "modules-center": ["custom/launcher"],
   "modules-right": [
+    "tray",
     "pulseaudio",
     "backlight",
     "battery",
     "clock",
-    "tray",
     "custom/power",
   ],
 
