@@ -5,20 +5,6 @@
 format = """
 $hostname\
 $directory\
-
-$localip\
-$shlvl\
-$singularity\
-$kubernetes\
-$vcsh\
-$hg_branch\
-$docker_context\
-$package\
-$custom\
-
-$sudo\
-
-$fill\
 $git_branch\
 $git_status\
 $git_commit\
@@ -29,7 +15,6 @@ $time\
 $status\
 $os\
 $container\
-$shell\
 $line_break\
 $character"""
 
@@ -37,17 +22,9 @@ $character"""
 # Disable the blank line at the start of the prompt
 add_newline = true
 
-
-# Second param
-[hostname]
-ssh_only = true 
-format = "[](fg:#252525 bg:none)[█](fg:#E8E3E3 bg:#252525)[$ssh_symbol$hostname](bold bg:#E8E3E3)[](fg:#E8E3E3 bg:none) "
-disabled = false
-
-# Third param
 [directory]
-format = "[](fg:#252525 bg:none)[$path]($style)[█](fg:#232526 bg:#232526)[](fg:#6791C9 bg:#252525)[ ](fg:#252525 bg:#6791C9)[](fg:#6791C9 bg:none)"
-style = "fg:#E8E3E3 bg:#252525 bold"
+format = "[$path]($style) [](fg:#6791C9 bg:none)[ ](fg:#252525 bg:#6791C9)[](fg:#6791C9 bg:none)  "
+style = "fg:#E8E3E3 bold"
 truncation_length = 3
 truncate_to_repo=false
 read_only = " "
@@ -67,19 +44,19 @@ style = 'bold green'
 
 [cmd_duration]
 min_time = 1
-format = "[](fg:#252525 bg:none)[$duration]($style)[](fg:#252525 bg:#252525)[](fg:#C397D8 bg:#252525)[󱑂 ](fg:#252525 bg:#C397D8)[](fg:#C397D8 bg:none)"
+format = "[$duration]($style) [](fg:#C397D8 bg:none)[󱑂 ](fg:#252525 bg:#C397D8)[](fg:#C397D8 bg:none)  "
 disabled = false
-style = "fg:#E8E3E3 bg:#252525 bold"
+style = "fg:#E8E3E3 bold"
 
 
 [git_branch]
-format = "[](fg:#252525 bg:none)[$branch]($style)[](fg:#252525 bg:#252525)[](fg:#81C19B bg:#252525)[](fg:#252525 bg:#81C19B)[](fg:#81C19B bg:none) "
-style = "fg:#E8E3E3 bg:#252525"
+format = "[$branch]($style) [](fg:#81C19B bg:none)[](fg:#252525 bg:#81C19B)[](fg:#81C19B bg:none) "
+style = "fg:#E8E3E3"
 symbol = " "
 
 [git_status]
-format="[](fg:#252525 bg:none)[$all_status$ahead_behind]($style)[](fg:#252525 bg:#252525)[](fg:#6791C9 bg:#252525)[ ](fg:#252525 bg:#6791C9)[](fg:#6791C9 bg:none) "
-style = "fg:#E8E3E3 bg:#252525"
+format="[$all_status$ahead_behind]($style) [](fg:#6791C9 bg:none)[ ](fg:#252525 bg:#6791C9)[](fg:#6791C9 bg:none) "
+style = "fg:#E8E3E3"
 conflicted = "="
 ahead =	"⇡${count}"
 behind = "⇣${count}"
@@ -107,8 +84,6 @@ am_or_rebase = "AM/REBASE"
 style =	"yellow"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
-# # SYMBOLS
-
 [aws]
 symbol = "  "
 
@@ -117,8 +92,6 @@ symbol = " "
 
 [dart]
 symbol = " "
-
-# [directory]
 
 [docker_context]
 symbol = " "
@@ -197,17 +170,3 @@ symbol = "ﯣ "
 format = "via [ Node.js $version](bold green) "
 detect_files = ["package.json", ".node-version"]
 detect_folders = ["node_modules"]
-
-# Other languages configurations:
-c.disabled = true
-cmake.disabled = true
-haskell.disabled = true
-python.disabled = true
-ruby.disabled = true
-rust.disabled = true
-perl.disabled = true
-package.disabled = true
-lua.disabled = true
-nodejs.disabled = true
-java.disabled = true
-golang.disabled = true
