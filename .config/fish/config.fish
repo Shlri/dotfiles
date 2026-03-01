@@ -1,5 +1,3 @@
-set -U fish_greeting
-
 function y
 	set tmp (mktemp -t "yazi-cwd.XXXXXX")
 	command yazi $argv --cwd-file="$tmp"
@@ -10,7 +8,7 @@ function y
 end
 
 if status is-interactive
+	set -U fish_greeting ""
+
 	starship init fish | source
-	
-	alias ls="eza --icons"
 end
