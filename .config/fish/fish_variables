@@ -3,3 +3,4 @@
 SETUVAR __fish_initialized:4300
 SETUVAR fish_greeter:
 SETUVAR fish_greeting:
+SETUVAR fish_user_paths:/home/shiri/\x2elocal/bin

@@ -18,8 +18,6 @@ $container\
 $line_break\
 $character"""
 
-
-# Disable the blank line at the start of the prompt
 add_newline = true
 
 [directory]
@@ -29,8 +27,6 @@ truncation_length = 3
 truncate_to_repo=false
 read_only = " "
 
-## SECOND LINE/ROW: Prompt
-# Prompt: param 2 └─
 [character]
 success_symbol = "[ ](#6791C9 bold)"
 error_symbol = "[ ](#B66467 bold)"
@@ -38,16 +34,11 @@ error_symbol = "[ ](#B66467 bold)"
 [line_break]
 disabled = false
 
-[fill]
-symbol = ' '
-style = 'bold green'
-
 [cmd_duration]
 min_time = 1
 format = "[$duration]($style) [](fg:#C397D8 bg:none)[󱑂 ](fg:#252525 bg:#C397D8)[](fg:#C397D8 bg:none)  "
 disabled = false
 style = "fg:#E8E3E3 bold"
-
 
 [git_branch]
 format = "[$branch]($style) [](fg:#81C19B bg:none)[](fg:#252525 bg:#81C19B)[](fg:#81C19B bg:none) "
