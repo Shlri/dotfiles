@@ -61,3 +61,7 @@ output_path = '~/.config/yazi/theme.toml'
 [templates.zed]
 input_path = '~/.config/matugen/templates/zed-colors.json'
 output_path = '~/.config/zed/themes/matugen.json'
+
+[templates.firefox-website-colors]
+input_path = "~/.config/matugen/templates/firefox.css"
+output_path = "~/.mozilla/firefox/{this}/chrome/colors.css" # u should change *{this}*
